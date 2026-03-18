@@ -14,10 +14,12 @@ import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Siginup";
 import About from "./pages/About/About"
 import Contact from "./pages/Contact";
+import ScrollToTop from "./components/Scroll up/Scroll";
 
 function App() {
   return (
     <BrowserRouter>
+    <ScrollToTop/>
       <Routes>
         {/* With Header & Footer */}
         <Route element={<Layout />}>

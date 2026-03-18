@@ -6,45 +6,57 @@ import emailjs from "@emailjs/browser";
 const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
+import { Link } from "react-router-dom";
 
 const contactInfo = [
   {
-    icon: <Mail className="w-6 h-6 dark:text-dark-foreground text-light-foreground" />,
+    icon: (
+      <Mail className="w-6 h-6 dark:text-dark-foreground text-light-foreground" />
+    ),
     title: "Email Us",
     details: ["wesalorganization@gmail.com"],
     description: "Send us an email anytime",
+    url: "https://mail.google.com/mail/?view=cm&to=wesalorganization@gmail.com",
   },
   {
-    icon: <Linkedin className="w-6 h-6 dark:text-dark-foreground text-light-foreground" />,
+    icon: (
+      <Linkedin className="w-6 h-6 dark:text-dark-foreground text-light-foreground" />
+    ),
     title: "LinkedIn",
     details: ["Wesal - وِصَـال"],
     description: "Connect with us on LinkedIn",
+    url: "https://www.linkedin.com/company/wesall1/",
   },
   {
-    icon: <Facebook className="w-6 h-6 dark:text-dark-foreground text-light-foreground" />,
+    icon: (
+      <Facebook className="w-6 h-6 dark:text-dark-foreground text-light-foreground" />
+    ),
     title: "Facebook",
     details: ["وِصَـال - Wesal"],
     description: "Follow us on Facebook",
+    url: "https://www.facebook.com/profile.php?id=61562997493853&mibextid=ZbWKwL",
   },
 ];
 
 const faqItems = [
   {
     question: "How do I enroll in a course?",
-    answer: "Browse our courses page, select the course you want, and click 'Enroll Now' to get started.",
+    answer:
+      "Browse our courses page, select the course you want, and click 'Enroll Now' to get started.",
   },
   {
     question: "Are the workshops online or in-person?",
-    answer: "We offer both online and in-person workshops. Check the workshop details for specific information.",
+    answer:
+      "We offer both online and in-person workshops. Check the workshop details for specific information.",
   },
   {
     question: "How do I apply for internships?",
-    answer: "Visit our Internships page, find the position you're interested in, and submit your application online.",
+    answer:
+      "Visit our Internships page, find the position you're interested in, and submit your application online.",
   },
 ];
 
 function Contact() {
-  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -99,22 +111,27 @@ function Contact() {
 
       <section className="py-12 -mt-12 bg-light-background dark:bg-dark-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-
           {/* Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {contactInfo.map((info, index) => (
               <Card
                 key={index}
-                className="mt-6 bg-light-card dark:bg-dark-card rounded-xl border dark:border-dark-border hover:border-light-accent/90 dark:hover:border-light-accent/50"
+                onClick={() => window.open(info.url, "_blank")}
+                className="mt-6 bg-light-card dark:bg-dark-card rounded-xl border dark:border-dark-border hover:border-light-accent/90 dark:hover:border-light-accent/50 cursor-pointer hover:shadow-lg transition-all"
               >
                 <CardBody className="flex flex-col items-center text-center">
                   <section className="w-14 h-14 rounded-full bg-light-ring/80 flex items-center justify-center">
                     {info.icon}
                   </section>
-                  <Typography variant="h5" className="mb-2 mt-3 text-light-accent-foreground dark:text-dark-destructive-foreground">
+                  <Typography
+                    variant="h5"
+                    className="mb-2 mt-3 text-light-accent-foreground dark:text-dark-destructive-foreground"
+                  >
                     {info.title}
                   </Typography>
-                  <Typography className="mb-1 mt-1 text-sm">{info.details}</Typography>
+                  <Typography className="mb-1 mt-1 text-sm">
+                    {info.details}
+                  </Typography>
                   <Typography>{info.description}</Typography>
                 </CardBody>
               </Card>
@@ -127,13 +144,17 @@ function Contact() {
                   Send us a Message
                 </h2>
                 <p className="text-light-muted-foreground dark:text-dark-muted-foreground">
-                  Fill out the form below and we'll get back to you within 24 hours.
+                  Fill out the form below and we'll get back to you within 24
+                  hours.
                 </p>
               </div>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm text-light-foreground dark:text-dark-foreground mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm text-light-foreground dark:text-dark-foreground mb-2"
+                    >
                       Full Name *
                     </label>
                     <input
@@ -148,7 +169,10 @@ function Contact() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm text-light-foreground dark:text-dark-foreground mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm text-light-foreground dark:text-dark-foreground mb-2"
+                    >
                       Email Address *
                     </label>
                     <input
@@ -164,7 +188,10 @@ function Contact() {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm text-light-foreground dark:text-dark-foreground mb-2">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm text-light-foreground dark:text-dark-foreground mb-2"
+                  >
                     Subject *
                   </label>
                   <select
@@ -177,15 +204,26 @@ function Contact() {
                   >
                     <option value="">Select a subject</option>
                     <option value="General Inquiry">General Inquiry</option>
-                    <option value="Course Information">Course Information</option>
-                    <option value="Workshop Questions">Workshop Questions</option>
-                    <option value="Internship Applications">Internship Applications</option>
+                    <option value="Course Information">
+                      Course Information
+                    </option>
+                    <option value="Workshop Questions">
+                      Workshop Questions
+                    </option>
+                    <option value="Internship Applications">
+                      Internship Applications
+                    </option>
                     <option value="Technical Support">Technical Support</option>
-                    <option value="Billing & Payments">Billing & Payments</option>
+                    <option value="Billing & Payments">
+                      Billing & Payments
+                    </option>
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm text-light-foreground dark:text-dark-foreground mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm text-light-foreground dark:text-dark-foreground mb-2"
+                  >
                     Message *
                   </label>
                   <textarea
@@ -200,10 +238,14 @@ function Contact() {
                   />
                 </div>
                 {status === "success" && (
-                  <p className="text-green-500 text-center">Message sent successfully!</p>
+                  <p className="text-green-500 text-center">
+                    Message sent successfully!
+                  </p>
                 )}
                 {status === "error" && (
-                  <p className="text-red-500 text-center">Something went wrong. Please try again.</p>
+                  <p className="text-red-500 text-center">
+                    Something went wrong. Please try again.
+                  </p>
                 )}
                 <button
                   type="submit"
