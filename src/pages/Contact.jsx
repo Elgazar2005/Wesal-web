@@ -44,9 +44,7 @@ const faqItems = [
 ];
 
 function Contact() {
-  console.log("SERVICE_ID:", import.meta.env.VITE_SERVICE_ID);
-  console.log("TEMPLATE_ID:", import.meta.env.VITE_TEMPLATE_ID);
-  console.log("PUBLIC_KEY:", import.meta.env.VITE_PUBLIC_KEY);
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
