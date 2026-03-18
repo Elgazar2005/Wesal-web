@@ -21,11 +21,12 @@ function App() {
       <Routes>
 
         {/* Auth — no header/footer */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        
 
         {/* With Header & Footer */}
         <Route element={<Layout />}>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
           {/* Public */}
           <Route path="/" element={<Home />} />
