@@ -211,14 +211,14 @@ function Courses() {
 
   return (
     <div className="min-h-screen bg-[var(--background)]">
-      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-[#0E3B2E]/10 via-transparent to-[#C8A85A]/5">
+      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-b from-light-hero to-light-hero-end dark:bg-gradient-to-b dark:from-dark-hero dark:to-dark-hero-end">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-8">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl text-[var(--foreground)] mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl text-white mb-6">
               Upgrade Your Skills with Expert-Led Courses
             </h1>
 
-            <p className="text-lg sm:text-xl text-[var(--muted-foreground)] max-w-4xl mx-auto leading-relaxed mb-8">
+            <p className="text-lg sm:text-xl text-light-cream max-w-4xl mx-auto leading-relaxed mb-8">
               Explore a wide range of professional courses designed to help you
               learn new skills, advance your career, and achieve your goals.
               From development and design to marketing and data science, start
